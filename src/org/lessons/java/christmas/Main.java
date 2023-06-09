@@ -7,13 +7,25 @@ Bonus:santa: : salvare la lista su file e recuperarla quando si avvia il program
 
 package org.lessons.java.christmas;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        File myFile = new File("./regali.txt");
+        Scanner reader = new Scanner(myFile);
+        while (reader.hasNextLine()) {
+            String line = reader.nextLine();
+            System.out.println(line);
+        }
+        reader.close();
+
         Scanner scan = new Scanner(System.in);
         List<String> listaRegali = new ArrayList<>();
 
@@ -30,5 +42,18 @@ public class Main {
 
         Collections.sort(listaRegali);
         System.out.println("La lista regali è: " + listaRegali);
+
+
+        // myFile.createNewFile();
+        try {
+            FileWriter myWriter = new FileWriter(myFile);
+            for (String regalo : listaRegali) {
+                myWriter.write(regalo + "\n");
+            }
+            myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scan.close();
     }
 }
