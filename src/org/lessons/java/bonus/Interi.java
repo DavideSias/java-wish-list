@@ -12,7 +12,6 @@ package org.lessons.java.bonus;
 
 public class Interi {
     private int counter = 0;
-    private int elements = 0;
     private int[] numbers;
 
     public Interi(int[] numbers) {
@@ -20,7 +19,7 @@ public class Interi {
     }
 
     public Interi(){
-        this.numbers = new int[elements];
+        this.numbers = new int[0];
     }
 
     public int getElementoSuccessivo(){
@@ -39,9 +38,16 @@ public class Interi {
         }
     }
 
-    /*public void addElemento(int element){
-        this.elements++;
-        numbers = new int[elements];
-        numbers[elements] = element;
-    }*/
+    public void addElemento(int element) {
+        if (numbers.length == 0) {
+            this.numbers = new int[]{element};
+        } else {
+            int[] secondArray = new int[numbers.length + 1];
+            for (int i = 0; i < numbers.length; i++) {
+                secondArray[i] = numbers[i];
+            }
+            secondArray[numbers.length] = element;
+            numbers = secondArray;
+        }
+    }
 }

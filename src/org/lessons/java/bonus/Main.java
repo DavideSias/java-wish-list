@@ -12,15 +12,21 @@ public class Main {
         System.out.println(classNumeri.hasAncoraElementi());
         System.out.println(classNumeri.getElementoSuccessivo());
         System.out.println(classNumeri.getElementoSuccessivo());
+        System.out.println(classNumeri.getElementoSuccessivo());
+        System.out.println(classNumeri.getElementoSuccessivo());
         System.out.println(classNumeri.hasAncoraElementi());
 
+        classNumeri.addElemento(6);
+        System.out.println(classNumeri.getElementoSuccessivo());
 
-        /*Interi prova = new Interi();
+
+        Interi prova = new Interi();
         prova.addElemento(10);
         prova.addElemento(50);
         prova.addElemento(30);
         System.out.println(prova.getElementoSuccessivo());
         System.out.println(prova.getElementoSuccessivo());
-        System.out.println(prova.getElementoSuccessivo());*/
+        System.out.println(prova.getElementoSuccessivo());
+
     }
 }
