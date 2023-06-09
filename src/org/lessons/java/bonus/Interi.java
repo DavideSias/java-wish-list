@@ -27,7 +27,7 @@ public class Interi {
             this.counter++;
             return this.numbers[counter - 1];
         }
-        return 0;
+        throw new RuntimeException("hai raggiunto il limite massimo");
     }
 
     public boolean hasAncoraElementi(){
